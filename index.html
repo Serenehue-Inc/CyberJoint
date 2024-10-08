@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Cafe</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0d19;
+            color: #d3d3e0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Style for 'PUNK' */
+        h1 span {
+            background-color: #a8ff9e;
+            color: black;
+            padding: 0 5px;
+        }
+
+        .navbar {
+            text-align: right;
+        }
+
+        .navbar a {
+            color: #a8ff9e;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border-color: #666;
+            border-style: solid;
+            margin-top: 10px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+
+        .service-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-list li {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            cursor: pointer;
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: #a8ff9e;
+        }
+
+        .service-list li:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            display: none;
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid #666;
+        }
+
+        .service-detail h2 {
+            font-size: 2.5rem;
+            color: #a8ff9e;
+        }
+
+        .sub-services {
+            margin-top: 20px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sub-services li {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0e0d19;
+            padding: 50px;
+            margin-top: 50px;
+            text-align: center;
+            border-top: 1px solid #666;
+        }
+
+        .footer div {
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+        }
+
+        .footer div h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .footer div p {
+            font-size: 1rem;
+            color: #d3d3e0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-list li {
+                font-size: 1.2rem;
+            }
+
+            .service-detail h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-detail p {
+                font-size: 1rem;
+            }
+
+            .footer div {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-container input {
+            width: 80%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #a8ff9e;
+        }
+
+        .highlight {
+            background-color: #ffd54f;
+        }
+/* Floating WhatsApp Icon */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CYBER <span>JOINT</span></h1>
+            <div class="navbar">
+                <a href="#">+91 9008544029</a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="services">
+            <ul class="service-list">
+                <li onclick="showDetail('identity')">Identification Services</li>
+                <li onclick="showDetail('application')">Government and Legal Applications</li>
+                <li onclick="showDetail('growth')">Financial Services</li>
+                <li onclick="showDetail('travel')">Travel and Transport Services</li>
+                <li onclick="showDetail('print')">Printing and Documentation Services</li>
+                <li onclick="showDetail('adaptive')">Insurance Services</li>
+            </ul>
+        </div>
+
+        <!-- Search Bar 
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for sub-services...">
+        </div> 
+        -->
+
+        <!-- Service Details -->
+        <div id="identity" class="service-detail">
+            <h2>Identification Services</h2>
+            <ul class="sub-services">
+                <li>Aadhaar Card correction</li>
+                <li>PAN Card services</li>
+                <li>Passport & VISA</li>
+                <li>Ration card</li>
+                <li>Voter ID</li>
+                <li>Police Verification</li>
+                <li>Income and Caste Certificates</li>
+                <li>DL, LL application</li>
+            </ul>
+        </div>
+
+        <div id="application" class="service-detail">
+            <h2>Government and Legal Applications</h2>
+            <ul class="sub-services">
+                <li>Nadha Kacheri</li>
+                <li>Student Pass</li>
+                <li>Seva Sindhu</li>
+                <li>Labour Card</li>
+                <li>Senior Citizen Services</li>
+                <li>RTI and Kathha</li>
+                <li>BBMP Tax</li>
+                <li>PF Claim</li>
+            </ul>
+        </div>
+
+        <div id="growth" class="service-detail">
+            <h2>Financial Services</h2>
+            <ul class="sub-services">
+                <li>Money Transfer</li>
+                <li>LIC Agent Services</li>
+                <li>ITR Filing</li>
+                <li>Bill Payments (Electricity, Water, Credit Payment, Mobile Recharge, DTH)</li>
+                <li>Bank Account Opening</li>
+            </ul>
+        </div>
+
+        <div id="travel" class="service-detail">
+            <h2>Travel and Transport Services</h2>
+            <ul class="sub-services">
+                <li>CAR RENTAL SERVICE</li>
+            </ul>
+        </div>
+
+        <div id="print" class="service-detail">
+            <h2>Printing and Documentation Services</h2>
+            <ul class="sub-services">
+                <li>Xerox</li>
+                <li>A0-A4 Printouts</li>
+                <li>Scanner</li>
+                <li>Lamination</li>
+                <li>PVC cards</li>
+                <li>JUMBO Print</li>
+                <li>BLUE PRINT</li>
+                <li>Project Binding</li>
+                <li>Rubber Stamp</li>
+            </ul>
+        </div>
+
+        <!-- Add more service-detail blocks as needed -->
+
+        <!-- Footer -->
+        <div class="footer">
+            <div>
+                <h3>Location</h3>
+                <p>#93, Rajagopal Nagar main Road, Next to Veeranjaneya Temple, Bengaluru, 560058</p>
+            </div>
+            <div>
+                <h3>Hours</h3>
+                <p>Monday–Saturday<br>9am – 9pm</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>+91 9008544029 <br>cyberjoint@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/8722709071" target="_blank" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+    <script>
+        // Function to show specific service details when a service is clicked
+        function showDetail(service) {
+            // Hide all service details first
+            var details = document.querySelectorAll('.service-detail');
+            details.forEach(function(detail) {
+                detail.style.display = 'none'; // Hide all details
+            });
+    
+            // Show the selected service detail
+            var selectedDetail = document.getElementById(service);
+            if (selectedDetail) {
+                selectedDetail.style.display = 'block'; // Show the clicked service detail
+            }
+        }
+
+        // Search functionality for filtering sub-services across all services
+       // document.getElementById('searchBar').addEventListener('input', function() {
+         //   let filter = this.value.toLowerCase(); // Get the user's search input
+           // let allSubServices = document.querySelectorAll('.sub-services li'); // Get all sub-service items across all services
+
+            // Loop through each sub-service item and compare with the search input
+            //for (let i = 0; i < allSubServices.length; i++) {
+              //  let txtValue = allSubServices[i].textContent || allSubServices[i].innerText; // Get text of sub-service item
+               // if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                 //   allSubServices[i].style.display = ""; // Show if match
+                // } else {
+                   // allSubServices[i].style.display = "none"; // Hide if no match
+                // }
+           // }
+       // });
+    </script>
+    
+</body>
+</html>
